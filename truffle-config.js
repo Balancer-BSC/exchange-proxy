@@ -17,6 +17,11 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
+// eslint-disable-next-line no-unused-expressions
+require('dotenv').config;
+const HDWalletProvider = require('truffle-hdwallet-provider');
+
+const { BSC_MNEMONIC } = process.env;
 
 module.exports = {
     /**
@@ -34,15 +39,25 @@ module.exports = {
             host: 'localhost', // Localhost (default: none)
             port: 8545, // Standard Ethereum port (default: none)
             network_id: '*', // Any network (default: none)
-            gas: 10000000,
+            // gas: 10000000,
         },
         kovan: {
             host: 'localhost',
             port: 8545,
             network_id: 42,
             gasPrice: 10000000000, // 10 gwei
-            gas: 6900000,
+            // gas: 6900000,
             from: process.env.ETH_FROM,
+        },
+        bscmain: {
+            provider: new HDWalletProvider(BSC_MNEMONIC, 'https://bsc-dataseed1.binance.org:443'),
+            network_id: '*', // Any network (default: none)
+            // gas: 10000000,
+        },
+        bsctest: {
+            provider: new HDWalletProvider(BSC_MNEMONIC, 'https://data-seed-prebsc-1-s1.binance.org:8545'),
+            network_id: '*', // Any network (default: none)
+            // gas: 10000000,
         },
     },
 

@@ -24,3 +24,5 @@ yarn compile   # build artifacts to `build/contracts`
 yarn testrpc # run ganache
 yarn test    # run the tests
 ```
+
+BSC Mainnet exchage-proxy address is "0xbC8200f34c81d92220F06384a018d25aB3c3dF2c".
